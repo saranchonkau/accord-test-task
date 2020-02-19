@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
-import { MenuItemProps, MenuItemType } from './Menu'
+import { MenuItemProps, MenuItemType } from './menu'
 import productBoardSrc from '../assets/images/productboard.png'
 
 export interface PersonMenuItemType extends MenuItemType {
