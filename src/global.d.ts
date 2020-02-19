@@ -9,3 +9,13 @@ interface IconProps {
 
 type FCProps = { className?: string }
 type FC<T = {}> = React.FC<Readonly<T & FCProps>>
+
+declare module '*.png' {
+  const src: string
+  export default src
+}
+
+declare module '*.svg' {
+  const src: string
+  export default src
+}
