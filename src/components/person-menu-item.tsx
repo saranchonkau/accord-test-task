@@ -31,8 +31,9 @@ function PersonMenuItem(props: Props) {
           </AvatarContainer>
         </LogoBlock>
         <TextContainer>
-          <Name>{item.fullName}</Name>
-          <JobTitle>{item.jobTitle}</JobTitle>
+          <Name>
+            {item.fullName} <JobTitle>{item.jobTitle}</JobTitle>
+          </Name>
         </TextContainer>
       </Inner>
     </Container>
@@ -57,7 +58,6 @@ const JobTitle = styled.span`
 const Container = styled.li<{ isSelected: boolean; isHighlighted: boolean }>`
   width: 268px;
 
-  height: 40px;
   padding: 8px 20.5px 8px 20.5px;
   cursor: pointer;
 
@@ -97,11 +97,11 @@ const Container = styled.li<{ isSelected: boolean; isHighlighted: boolean }>`
 
 const Inner = styled.div`
   display: flex;
-  align-items: center;
 `
 
 const LogoBlock = styled.div`
   position: relative;
+  flex: 0 0 36px;
   width: 36px;
   height: 24px;
   margin-right: 11px;
@@ -132,6 +132,8 @@ const AvatarContainer = styled.div`
   }
 `
 
-const TextContainer = styled.div``
+const TextContainer = styled.div`
+  overflow: hidden;
+`
 
 export default PersonMenuItem

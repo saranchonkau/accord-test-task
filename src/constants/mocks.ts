@@ -1,4 +1,4 @@
-import { PersonMenuItemType } from '../components/PersonMenuItem'
+import { PersonMenuItemType } from '../components/person-menu-item'
 import rossRichAvatar from '../assets/images/ross_rich.png'
 import harryAveryAvatar from '../assets/images/harry_avery.png'
 import amitPatelAvatar from '../assets/images/amit_patel.png'
