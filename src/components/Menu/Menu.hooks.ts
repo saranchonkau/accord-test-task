@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
+import { MenuItemType } from './Menu'
 
-export function useUpAndDownKeys<ItemType>({
+export function useUpAndDownKeys<ItemType extends MenuItemType>({
   items,
   onChange,
-  searchQuery
+  searchQuery,
+  selectedItem
 }: {
-  isSearchable?: boolean
+  selectedItem: ItemType | null
   items: Array<ItemType>
   onChange: (selectedItem: ItemType | null) => void
   searchQuery: string
@@ -36,8 +38,16 @@ export function useUpAndDownKeys<ItemType>({
     }
 
     if (event.key === 'Enter') {
-      if (highlightedIndex !== -1 && items[highlightedIndex]) {
-        onChange(items[highlightedIndex])
+      if (highlightedIndex === -1) return
+
+      const highlightedItem = items[highlightedIndex]
+      const isSelected =
+        selectedItem &&
+        highlightedItem &&
+        highlightedItem.value === selectedItem.value
+
+      if (highlightedItem && !isSelected) {
+        onChange(highlightedItem)
       }
     }
   }

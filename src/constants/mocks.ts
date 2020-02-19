@@ -1,10 +1,10 @@
-import { PersonMenuItemType } from '../components/shared/PersonMenuItem'
+import { PersonMenuItemType } from '../components/PersonMenuItem'
 import rossRichAvatar from '../assets/images/ross_rich.png'
 import harryAveryAvatar from '../assets/images/harry_avery.png'
 import amitPatelAvatar from '../assets/images/amit_patel.png'
 import suzyAndersonAvatar from '../assets/images/suzy_anderson.png'
 
-export const mockItems = [
+export const MOCK_ITEMS = [
   {
     value: 'evaluations',
     label: 'My evaluations'
@@ -15,7 +15,7 @@ export const mockItems = [
   }
 ]
 
-export const mockPersonItems: Array<PersonMenuItemType> = [
+export const MOCK_PERSON_ITEMS: Array<PersonMenuItemType> = [
   {
     value: 'ross_rich',
     avatarUrl: rossRichAvatar,

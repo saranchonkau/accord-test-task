@@ -48,7 +48,7 @@ function Menu<ItemType extends MenuItemType = MenuItemType>({
   const filteredItems = items.filter((item) => filterItem(searchQuery, item))
 
   const { highlightedIndex, inputProps } = useUpAndDownKeys({
-    isSearchable,
+    selectedItem,
     items: filteredItems,
     onChange,
     searchQuery
@@ -90,6 +90,7 @@ function Menu<ItemType extends MenuItemType = MenuItemType>({
           isSelected={isSelected}
           isHighlighted={isHighlighted}
           onClick={onItemClick}
+          data-menu-item
         >
           <ItemText>{item.label}</ItemText>
         </MenuItem>
@@ -106,7 +107,7 @@ function Menu<ItemType extends MenuItemType = MenuItemType>({
           {...inputProps}
         />
       )}
-      <MenuList>
+      <MenuList data-menu-list>
         {filteredItems.length > 0 ? (
           filteredItems.map(renderMenuItem)
         ) : (
@@ -133,7 +134,7 @@ const MenuList = styled.ul`
 
 const MenuItem = styled.li<{ isSelected?: boolean; isHighlighted?: boolean }>`
   height: 40px;
-  padding: 10px 29.5px 10px 21px;
+  padding: 10px 30px 10px 20.5px;
   cursor: pointer;
 
   ${(props) =>

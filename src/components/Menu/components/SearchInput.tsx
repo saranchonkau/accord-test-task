@@ -32,7 +32,7 @@ function SearchInput({
 }
 
 const Container = styled.div`
-  padding: 15.5px 21.5px 13px 21.5px;
+  padding: 15.5px 22px 13px 21px;
   border-bottom: 1px solid #deecfc;
 `
 
@@ -47,6 +47,7 @@ const Input = styled.input`
 
   &::placeholder {
     color: #8299b6;
+    letter-spacing: 0.25px;
   }
 `
 

@@ -1,8 +1,8 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
-import { MenuItemProps, MenuItemType } from './menu'
-import productBoardIconSrc from '../../assets/svg/product_board.svg'
+import { MenuItemProps, MenuItemType } from './Menu'
+import productBoardIconSrc from '../assets/svg/product_board.svg'
 
 export interface PersonMenuItemType extends MenuItemType {
   avatarUrl: string
@@ -19,6 +19,7 @@ function PersonMenuItem(props: Props) {
       isSelected={isSelected}
       onClick={onClick}
       isHighlighted={isHighlighted}
+      data-menu-item
     >
       <Inner>
         <LogoBlock>
@@ -29,31 +30,35 @@ function PersonMenuItem(props: Props) {
             <img src={item.avatarUrl} alt="" />
           </AvatarContainer>
         </LogoBlock>
-        <Name>{item.fullName}</Name>
-        <JobTitle>{item.jobTitle}</JobTitle>
+        <TextContainer>
+          <Name>{item.fullName}</Name>
+          <JobTitle>{item.jobTitle}</JobTitle>
+        </TextContainer>
       </Inner>
     </Container>
   )
 }
 
 const Name = styled.span`
+  display: inline-block;
   font-size: 14px;
   line-height: 20px;
   color: #192533;
 `
 
 const JobTitle = styled.span`
-  margin-left: 8px;
+  display: inline-block;
+  margin-left: 8.5px;
   color: #60789a;
   font-size: 12px;
-  line-height: 20px;
+  line-height: 18px;
 `
 
 const Container = styled.li<{ isSelected: boolean; isHighlighted: boolean }>`
-  width: 270px;
+  width: 268px;
 
   height: 40px;
-  padding: 8px 20.5px;
+  padding: 8px 20.5px 8px 20.5px;
   cursor: pointer;
 
   ${(props) =>
@@ -99,7 +104,7 @@ const LogoBlock = styled.div`
   position: relative;
   width: 36px;
   height: 24px;
-  margin-right: 12px;
+  margin-right: 11px;
 `
 
 const LogoContainer = styled.div`
@@ -115,7 +120,8 @@ const LogoContainer = styled.div`
 `
 const AvatarContainer = styled.div`
   position: absolute;
-  left: 14px;
+  left: 13px;
+  top: 0.5px;
   height: 24px;
   width: 24px;
   padding: 1px;
@@ -125,5 +131,7 @@ const AvatarContainer = styled.div`
     height: 100%;
   }
 `
+
+const TextContainer = styled.div``
 
 export default PersonMenuItem

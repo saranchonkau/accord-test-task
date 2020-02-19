@@ -3,59 +3,79 @@ import ReactDOM from 'react-dom'
 import styled from 'styled-components'
 
 import './assets/css/global.css'
-import { GlobalStyle } from './global-style'
-import Menu, { MenuItemType } from './components/shared/menu'
-import PersonMenuItem, {
-  PersonMenuItemType
-} from './components/shared/PersonMenuItem'
-import { mockItems, mockPersonItems } from './lib/mocks'
-
-function filterPersonItem(query: string, item: PersonMenuItemType): boolean {
-  return item.fullName.toLowerCase().includes(query.trim().toLowerCase())
-}
+import Menu, { MenuItemType } from './components/Menu'
+import PersonMenuItem, { PersonMenuItemType } from './components/PersonMenuItem'
+import { MOCK_ITEMS, MOCK_PERSON_ITEMS } from './constants/mocks'
 
 function App() {
+  const [isSimpleMenuVisible, setSimpleMenuVisible] = useState(false)
+
   const [selectedItem, setSelectedItem] = useState<MenuItemType | null>(null)
   const [
     selectedPersonItem,
     setSelectedPersonItem
-  ] = useState<PersonMenuItemType | null>(mockPersonItems[1])
+  ] = useState<PersonMenuItemType | null>(MOCK_PERSON_ITEMS[3])
+
+  function filterPersonItem(query: string, item: PersonMenuItemType): boolean {
+    return item.fullName.toLowerCase().includes(query.trim().toLowerCase())
+  }
 
   return (
-    <>
-      <GlobalStyle />
-
-      <MenuContainer>
+    <MenuContainer>
+      <CheckBoxContainer>
+        <label>
+          <input
+            type="checkbox"
+            checked={isSimpleMenuVisible}
+            onChange={(event) => setSimpleMenuVisible(event.target.checked)}
+          />
+          Display simple menu
+        </label>
+      </CheckBoxContainer>
+      {isSimpleMenuVisible ? (
         <Menu
-          items={mockPersonItems}
-          selectedItem={selectedPersonItem}
-          onChange={(item) => {
-            console.log('Change event: ', item)
-            setSelectedPersonItem(item)
-          }}
-          isSearchable={true}
-          MenuItemComponent={PersonMenuItem}
-          filterItem={filterPersonItem}
-        />
-        <Menu
-          items={mockItems}
+          items={MOCK_ITEMS}
           selectedItem={selectedItem}
           onChange={(item) => {
             console.log('Change event: ', item)
             setSelectedItem(item)
           }}
-          isSearchable={true}
         />
-      </MenuContainer>
-    </>
+      ) : (
+        <PersonMenuContainer>
+          <Menu
+            items={MOCK_PERSON_ITEMS}
+            selectedItem={selectedPersonItem}
+            onChange={(item) => {
+              console.log('Change event: ', item)
+              setSelectedPersonItem(item)
+            }}
+            isSearchable={true}
+            MenuItemComponent={PersonMenuItem}
+            filterItem={filterPersonItem}
+          />
+        </PersonMenuContainer>
+      )}
+    </MenuContainer>
   )
 }
+
+const CheckBoxContainer = styled.div`
+  margin-bottom: 30px;
+`
 
 const MenuContainer = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+`
+
+const PersonMenuContainer = styled.div`
+  [data-menu-list] {
+    margin: 9.5px 0 9.5px 0;
+  }
 `
 
 ReactDOM.render(<App />, document.getElementById('root'))
