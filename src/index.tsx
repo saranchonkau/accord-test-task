@@ -10,13 +10,13 @@ import PersonMenuItem, {
 import { MOCK_ITEMS, MOCK_PERSON_ITEMS } from './constants/mocks'
 
 function App() {
-  const [isSimpleMenuVisible, setSimpleMenuVisible] = useState(false)
+  const [isSimpleMenuVisible, setSimpleMenuVisible] = useState(true)
 
   const [selectedItem, setSelectedItem] = useState<MenuItemType | null>(null)
   const [
     selectedPersonItem,
     setSelectedPersonItem
-  ] = useState<PersonMenuItemType | null>(MOCK_PERSON_ITEMS[3])
+  ] = useState<PersonMenuItemType | null>(null)
 
   function filterPersonItem(query: string, item: PersonMenuItemType): boolean {
     return item.fullName.toLowerCase().includes(query.trim().toLowerCase())
