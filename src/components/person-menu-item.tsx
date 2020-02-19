@@ -1,8 +1,8 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
-import { MenuItemProps, MenuItemType } from './menu'
-import productBoardIconSrc from '../assets/svg/product_board.svg'
+import { MenuItemProps, MenuItemType } from './Menu'
+import productBoardSrc from '../assets/images/productboard.png'
 
 export interface PersonMenuItemType extends MenuItemType {
   avatarUrl: string
@@ -24,7 +24,7 @@ function PersonMenuItem(props: Props) {
       <Inner>
         <LogoBlock>
           <LogoContainer>
-            <img src={productBoardIconSrc} alt="" />
+            <img src={productBoardSrc} alt="" />
           </LogoContainer>
           <AvatarContainer>
             <img src={item.avatarUrl} alt="" />
