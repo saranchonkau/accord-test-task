@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import { FontWeights, Colors } from './lib/style-guide'
+import { Colors } from './lib/style-guide'
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -9,17 +9,16 @@ export const GlobalStyle = createGlobalStyle`
     border: 0;
     font-style: normal;
   }
-
-  body, input {
-    font-family: proxima-nova, sans-serif;
-    font-weight: ${FontWeights.PR};
-    font-size: 14px;
-    line-height: 1.4rem;
-    color: ${Colors.TX1};
+  
+  li {
+    list-style: none;
   }
 
-  svg, img {
-    display: block;
+  body {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.4rem;
   }
 
   #root {
