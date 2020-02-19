@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { MenuItemType } from './Menu'
+import { MenuItemType } from './menu'
 
 export function useUpAndDownKeys<ItemType extends MenuItemType>({
   items,

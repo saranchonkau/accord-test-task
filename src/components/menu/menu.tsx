@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 
-import SearchInput from './components/SearchInput'
+import SearchInput from './components/search-input'
 
-import { useUpAndDownKeys } from './Menu.hooks'
+import { useUpAndDownKeys } from './menu.hooks'
 
 function defaultFilterItem<ItemType extends MenuItemType>(
   query: string,

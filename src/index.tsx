@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom'
 import styled from 'styled-components'
 
 import './assets/css/global.css'
-import Menu, { MenuItemType } from './components/Menu'
-import PersonMenuItem, { PersonMenuItemType } from './components/PersonMenuItem'
+import Menu, { MenuItemType } from './components/menu'
+import PersonMenuItem, {
+  PersonMenuItemType
+} from './components/person-menu-item'
 import { MOCK_ITEMS, MOCK_PERSON_ITEMS } from './constants/mocks'
 
 function App() {
